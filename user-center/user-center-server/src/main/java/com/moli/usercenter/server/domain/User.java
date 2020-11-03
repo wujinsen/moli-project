@@ -1,5 +1,11 @@
 package com.moli.usercenter.server.domain;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
+
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,45 +20,15 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
 public class User {
-    public static void main(String[] args) throws Exception {
-
-        Long startTime = System.currentTimeMillis();
-        Thread.sleep(3000);
-        Long endTime = System.currentTimeMillis();
-
-        System.out.println((endTime - startTime) / 1000);
-        LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
-        String dateStr = today.format(fmt);
-        System.out.println(today);
-        System.out.println(new Date());
-        System.out.println(dateStr);
-        String timeStr1 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-      //  String timeStr2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
-
-        System.out.println("当前时间为:" + timeStr1);
-       // System.out.println("当前时间为:" + timeStr2);
-
-//        byte[] b = {1};
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        ByteArrayInputStream swapStream = new ByteArrayInputStream(baos.toByteArray());
-//        InputStream input2 =swapStream;
-//        FileInputStream input = (FileInputStream)input2;
-        ZoneId zoneId = ZoneId.systemDefault();
-        ZonedDateTime zdt = today.atZone(zoneId);//Combines this date-time with a time-zone to create a  ZonedDateTime.
-        Date date = Date.from(zdt.toInstant());
-        System.out.println(date.toString());//Tue Mar 27 14:17:17 CST 2018
-
-    }
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 

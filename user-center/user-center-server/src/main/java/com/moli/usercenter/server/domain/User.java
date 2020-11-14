@@ -1,28 +1,12 @@
 package com.moli.usercenter.server.domain;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.parser.Feature;
-
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Setter
 @Getter

@@ -1,46 +1,49 @@
 package com.moli.usercenter.server.service;
 
 
-import com.moli.usercenter.server.UserCenterApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserTest {
 
     @Autowired
+    @Qualifier("UserServiceImpl")
     private UserService userService;
+
+    @Autowired
+    private ApplicationContext appContext;
 
     @Test
     public void UserTest() {
         System.out.println("=====: " + userService.select("1"));
     }
 
-    public static void main(String[] args) throws Exception {
-        byte a = 127;
-        byte b = 127;
-       // a = a + b;
-        System.out.println(a);
-        String str = "20200805";
-        System.out.println(str.substring(0, 4));
-        System.out.println(str.substring(4, 8));
-       // System.out.println(str.substring(8, 12));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    @Test
+    public void appContextTest(){
+       List<UserService> aaa = new ArrayList<>();
+       aaa.addAll(appContext.getBeansOfType(UserService.class).values());
 
-        System.out.println(new java.sql.Timestamp(sdf.parse("2020-08-05").getTime()));
-
+        aaa.forEach(e->{
+            e.select("1");
+        });
     }
+
     @Test
     public void jdbcTest() {
         Connection con;

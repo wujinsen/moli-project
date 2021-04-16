@@ -20,16 +20,16 @@ import java.util.List;
 
 import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 
-@Service
+@Service("UserServiceImpl")
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
 
 
-    @Override
     @Transactional(propagation=Propagation.NOT_SUPPORTED)
     public UserResponseDTO select(String id) {
+        System.out.println("user select");
         User user = new User();
         user.setId(id);
         User result = userMapper.selectOne(user);

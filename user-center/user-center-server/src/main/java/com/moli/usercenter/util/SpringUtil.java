@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @Description Spring上下文工具类
- * @Author Sans
+ * @Author SansComponent
  * @CreateTime 2019/6/17 13:40
  */
 @Component

@@ -10,10 +10,12 @@ public interface RedisConstant {
      * TOKEN前缀
      */
     String REDIS_PREFIX_LOGIN = "login_token_%s";
+
     /**
      * 过期时间2小时
      */
     Integer REDIS_EXPIRE_TWO = 7200;
+
     /**
      * 过期时间15分
      */
